@@ -10,6 +10,7 @@ class AppFactory:
         self.configure_app()
         self.init_extensions()
         self.build_dependencies()
+        self.register_controllers()
         self.create_database()
 
     def configure_app(self):
@@ -23,6 +24,9 @@ class AppFactory:
         self.product_repository = ProductRepository(db.session)
         self.product_service = ProductService(self.product_repository)
         self.product_controller = ProductController(self.product_service)
+
+    def register_controllers(self):
+        self.app.register_blueprint(self.product_controller.blueprint, url_prefix="/products")
 
     def create_database(self):
         with self.app.app_context():
