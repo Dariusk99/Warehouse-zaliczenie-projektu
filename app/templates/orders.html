@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zamówienia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+
+<header>Zamówienia DSW</header>
+
+<nav>
+    <a href="/">Magazyn</a>
+    <a href="/orders">Zamówienia</a>
+</nav>
+
+<div class="container">
+    <table id="items">
+        <thead>
+            <tr>
+                <th>
+                    <input type="text" class="search" data-column="0" placeholder="Nazwa...">
+                </th>
+                <th>
+                    <input type="text" class="search" data-column="1" placeholder="Ilość...">
+                </th>
+                <th>
+                    <input type="text" class="search" data-column="2" placeholder="Kategoria...">
+                </th>
+                <th>
+                    <input type="text" class="search" data-column="3" placeholder="Lokalizacja...">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<script src="{{ url_for('static', filename='js/orders.js') }}"></script>
+</body>
+</html>
