@@ -10,7 +10,7 @@ class ProductController:
         self.products_dto = ProductDTO(many=True)
         self.product_save_dto = ProductSaveDTO()
 
-        self.blueprint = Blueprint("products", __name__)
+        self.blueprint = Blueprint("v1/products", __name__)
         self.blueprint.add_url_rule("/", view_func=self.find_all, methods=["GET"])
         self.blueprint.add_url_rule("/", view_func=self.register_product, methods=["POST"])
 

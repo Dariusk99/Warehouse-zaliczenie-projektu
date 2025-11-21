@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from app.database import db
 from app.product.repository.product_repository import ProductRepository
 from app.product.service.product_service import ProductService
@@ -11,6 +11,7 @@ class AppFactory:
         self.init_extensions()
         self.build_dependencies()
         self.register_controllers()
+        self.register_routes()
         self.create_database()
 
     def configure_app(self):
@@ -26,7 +27,16 @@ class AppFactory:
         self.product_controller = ProductController(self.product_service)
 
     def register_controllers(self):
-        self.app.register_blueprint(self.product_controller.blueprint, url_prefix="/products")
+        self.app.register_blueprint(self.product_controller.blueprint, url_prefix="/v1/products")
+
+    def register_routes(self):
+        @self.app.get("/")
+        def index():
+            return render_template("index.html")
+        
+        @self.app.get("/orders")
+        def orders():
+            return render_template("orders.html")
 
     def create_database(self):
         with self.app.app_context():

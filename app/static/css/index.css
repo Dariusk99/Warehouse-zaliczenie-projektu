@@ -1,0 +1,196 @@
+/* =========================================================
+   BASE
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    background: #f4f6f8; /* jasny neutralny background */
+    color: #333;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    background: #ffffff;
+    color: #111;
+    padding: 24px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+    border-radius: 0 0 12px 12px;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+    display: flex;
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 12px 24px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    border-radius: 0 0 12px 12px;
+}
+
+.tab {
+    margin-right: 16px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 8px;
+    color: #555;
+    transition: all 0.2s;
+}
+
+.tab:hover {
+    background: #eef4ff;
+    color: #1e40af;
+}
+
+.tab.active {
+    background: #1e40af;
+    color: #ffffff;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+    flex: 1; 
+    padding: 20px;
+    width: 100%;
+    overflow: auto;
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+button {
+    padding: 10px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    background: #2563eb; /* przyjemny niebieski */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+}
+
+button:hover {
+    background: #1d4ed8;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+thead {
+    background: #f3f4f6; /* jasny szary */
+    color: #111;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+th, td {
+    padding: 10px 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+tbody tr {
+    cursor: pointer;
+}
+
+tbody tr:hover {
+    background: #f1f5f9;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* SEARCH INPUT IN HEADER */
+thead input.search {
+    width: 95%;
+    padding: 4px 6px;
+    font-size: 13px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #f9fafb;
+    transition: border-color 0.2s;
+}
+
+thead input.search:focus {
+    outline: none;
+    border-color: #2563eb;
+    background: #ffffff;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+    th, td {
+        padding: 8px 6px;
+        font-size: 13px;
+    }
+
+    button {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+    }
+
+    .tab {
+        margin-bottom: 8px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}
