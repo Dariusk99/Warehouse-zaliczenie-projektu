@@ -1,0 +1,17 @@
+from app.database import db
+
+class Product(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    index = db.Column(db.String(60), nullable=False)
+    name = db.Column(db.String(60), nullable=False)
+    quantity = db.Column(db.Integer, default=0)
+    location = db.Column(db.String(20))
+    category = db.Column(db.String(20))
+
+    product_type = db.Column(db.String(20))
+
+    __mapper_args__ = {
+        "polymorphic_on": product_type,
+        "polymorphic_identity": "product"
+    }

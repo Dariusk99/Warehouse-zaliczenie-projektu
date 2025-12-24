@@ -1,30 +1,77 @@
-function loadItems() {
+function loadOrders() {
     const tbody = document.querySelector("#items tbody");
     tbody.innerHTML = "";
 
     fetch("/v1/orders/")
         .then(response => response.json())
-        .then(products => {
-            products.forEach(p => {
+        .then(orders => {
+            orders.forEach(o => {
                 const row = document.createElement("tr");
-
-                row.dataset.id = p.id;
+                row.dataset.id = o.id;
 
                 row.innerHTML = `
-                    <td>${p.name}</td>
-                    <td>${p.quantity}</td>
-                    <td>${p.category || ""}</td>
-                    <td>${p.location || ""}</td>
+                    <td>${o.customer}</td>
+                    <td>${o.address}</td>
                 `;
+
+                row.addEventListener("click", () => {
+                    showDetails(o.id);
+                });
 
                 tbody.appendChild(row);
             });
         })
         .catch(err => {
             console.error("Błąd pobierania danych:", err);
-            tbody.innerHTML = "<tr><td colspan='4'>Błąd ładowania danych</td></tr>";
+            tbody.innerHTML = "<tr><td colspan='2'>Błąd ładowania danych</td></tr>";
         });
 }
+
+function showDetails(orderId) {
+    fetch(`/v1/orders/${orderId}`)
+        .then(response => response.json())
+        .then(order => {
+            const detailsPanel = document.getElementById("details");
+            
+            // Wstaw nagłówek zamówienia
+            detailsPanel.querySelector("h2").textContent = `Zamówienie: ${order.customer}, ${order.address} #${order.id}`;
+
+            // Pobierz tbody i wyczyść poprzednie dane
+            const tbody = detailsPanel.querySelector("tbody");
+            tbody.innerHTML = "";
+
+            // Dodaj wiersze dla każdego produktu
+            order.items.forEach(item => {
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+                    <td>${item.product_name}</td>
+                    <td>${item.quantity}</td>
+                `;
+
+                tbody.appendChild(row);
+            });
+        })
+        .catch(err => {
+            console.error("Błąd pobierania szczegółów:", err);
+            const tbody = document.querySelector("#details tbody");
+            tbody.innerHTML = "<tr><td colspan='2'>Błąd ładowania szczegółów</td></tr>";
+        });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const table = document.querySelector('#items tbody');
+
+    table.addEventListener('click', (e) => {
+        let tr = e.target.closest('tr');
+        if (!tr) return;
+
+        table.querySelectorAll('tr').forEach(row => row.classList.remove('selected'));
+
+        tr.classList.add('selected');
+    });
+});
+
 
 function filterTable() {
     const table = document.getElementById("items");
@@ -51,5 +98,5 @@ document.querySelectorAll("#items thead input.search").forEach(input => {
 
 window.addEventListener("DOMContentLoaded", () => {
     window.currentItem = null;
-    loadItems();
+    loadOrders();
 });

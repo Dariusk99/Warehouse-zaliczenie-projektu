@@ -11,7 +11,9 @@ function loadItems() {
                 row.dataset.id = p.id;
 
                 row.innerHTML = `
+                    <td>${p.index}</td>
                     <td>${p.name}</td>
+                    <td>${p.product_type}</td>
                     <td>${p.quantity}</td>
                     <td>${p.category || ""}</td>
                     <td>${p.location || ""}</td>

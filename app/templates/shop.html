@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Sklep</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <header>
+        <h1 class="site-title">Steel Factory</h1>
+        <nav>
+            <a href="/login">Zaloguj</a>
+        </nav>
+    </header>
+        
+    <main>
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/product1.jpg') }}" alt="Produkt 1">
+            <h2>Produkt 1</h2>
+            <button>Kup</button>
+        </div>
+
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/product2.jpg') }}" alt="Produkt 2">
+            <h2>Produkt 2</h2>
+            <button>Kup</button>
+        </div>
+
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/product3.jpg') }}" alt="Produkt 3">
+            <h2>Produkt 3</h2>
+            <button>Kup</button>
+        </div>
+    </main>
+
+</body>
+</html>
