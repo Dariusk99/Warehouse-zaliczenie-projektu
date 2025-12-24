@@ -1,6 +1,6 @@
 from flask import Blueprint, Response, request, jsonify
 import json
-from app.product.model.dto.product_dto import ProductDTO, ProductSaveDTO
+from app.product.core.product_dto import ProductDTO, ProductSaveDTO
 
 class ProductController:
     def __init__(self, product_service):

@@ -1,4 +1,4 @@
-from app.product.model.entity.product import Product
+from app.product.core.product import Product
 from sqlalchemy.exc import SQLAlchemyError
 
 class ProductRepository:
@@ -8,6 +8,9 @@ class ProductRepository:
     def find_all(self):
         return self.session.query(Product).all()
     
+    def find_by_id(self, product_id):
+        return self.session.get(Product, product_id)
+    
     def save(self, product: Product):
         try:
             self.session.add(product)
@@ -15,4 +18,4 @@ class ProductRepository:
             return product
         except SQLAlchemyError as e:
             self.session.rollback()
-            raise RuntimeError("Problem z zapisaniem w bazie danych") from e
+            return None

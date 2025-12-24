@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Magazyn</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+</head>
+<body>
+
+<nav>
+    <a href="/warehouse">Magazyn</a>
+    <a href="/orders">Zamówienia</a>
+</nav>
+
+<div class="container">
+    <table id="items">
+        <thead>
+            <tr>
+                <th>
+                    <input type="text" class="search" data-column="0" placeholder="Index...">
+                </th>
+                <th>
+                    <input type="text" class="search" data-column="1" placeholder="Nazwa...">
+                </th>
+                <th>
+                    <input type="text" class="search" data-column="2" placeholder="Typ...">
+                </th>
+                <th>
+                    <input type="text" class="search" data-column="3" placeholder="Ilość...">
+                </th>
+                <th>
+                    <input type="text" class="search" data-column="4" placeholder="Kategoria...">
+                </th>
+                <th>
+                    <input type="text" class="search" data-column="5" placeholder="Lokalizacja...">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
