@@ -33,24 +33,28 @@ function showDetails(orderId) {
         .then(order => {
             const detailsPanel = document.getElementById("details");
             
-            // Wstaw nagłówek zamówienia
             detailsPanel.querySelector("h2").textContent = `Zamówienie: ${order.customer}, ${order.address} #${order.id}`;
 
-            // Pobierz tbody i wyczyść poprzednie dane
             const tbody = detailsPanel.querySelector("tbody");
             tbody.innerHTML = "";
 
-            // Dodaj wiersze dla każdego produktu
             order.items.forEach(item => {
                 const row = document.createElement("tr");
+
+                if (item.available_quantity < item.quantity) {
+                    row.style.backgroundColor = "red";
+                    row.style.color = "white";
+                }
 
                 row.innerHTML = `
                     <td>${item.product_name}</td>
                     <td>${item.quantity}</td>
+                    <td>${item.available_quantity}</td>
                 `;
 
                 tbody.appendChild(row);
             });
+            detailsPanel.style.display = "block"; 
         })
         .catch(err => {
             console.error("Błąd pobierania szczegółów:", err);

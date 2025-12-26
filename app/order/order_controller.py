@@ -26,7 +26,7 @@ class OrderController:
     def get_order(self, order_id):
         order = self.order_service.find_by_id(order_id)
         if not order:
-            return jsonify({"error": "Order not found"}), 404
+            return jsonify({"error": "Order nie znaleziony"}), 404
         return self.order_dto.dump(order), 201
 
     def save_order(self):

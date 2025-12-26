@@ -11,11 +11,25 @@ class ProductService:
     def get_by_id(self, product_id):
         return self.product_repository.find_by_id(product_id)
     
+    def update_quantity(self, product_id, quantity):
+        return self.product_repository.update_quantity(product_id, quantity)
+    
     def save(self, data):
-        product = create_product_from_dict(data)
-        saved_product = self.product_repository.save(product)
+        product = self.product_repository.find_by_index(data.get("index"))
 
-        if not saved_product:
-            return None
+        if product:
+            product.quantity += data.get("quantity", 0)
+            updated_product = self.product_repository.save(product)
+
+            if not updated_product:
+                return None
+            
+            return updated_product
+        else:
+            new_product = create_product_from_dict(data)
+            saved_product = self.product_repository.save(new_product)
         
-        return saved_product
+            if not saved_product:
+                return None
+            
+            return saved_product

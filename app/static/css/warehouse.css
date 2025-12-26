@@ -1,0 +1,17 @@
+#add-item-btn {
+    width: 10%;
+    margin: 15px auto;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#items {
+    width: 70%;
+}
+
+.right-section {
+    width: 20%;
+}
