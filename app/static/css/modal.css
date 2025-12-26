@@ -1,0 +1,12 @@
+.close {
+    color: #ff4d4f;
+    font-weight: bold;
+    font-size: 22px;
+    cursor: pointer;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.close:hover {
+    color: #ff7875;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}

@@ -1,46 +1,60 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <title>Magazyn</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/warehouse.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modal.css') }}">
 </head>
+
 <body>
 
-<nav>
-    <a href="/warehouse">Magazyn</a>
-    <a href="/orders">Zamówienia</a>
-</nav>
+    <nav>
+        <a style="color: #00ff00;" href="/warehouse">Magazyn</a>
+        <a href="/orders">Zamówienia</a>
+    </nav>
 
-<div class="container">
-    <table id="items">
-        <thead>
-            <tr>
-                <th>
-                    <input type="text" class="search" data-column="0" placeholder="Index...">
-                </th>
-                <th>
-                    <input type="text" class="search" data-column="1" placeholder="Nazwa...">
-                </th>
-                <th>
-                    <input type="text" class="search" data-column="2" placeholder="Typ...">
-                </th>
-                <th>
-                    <input type="text" class="search" data-column="3" placeholder="Ilość...">
-                </th>
-                <th>
-                    <input type="text" class="search" data-column="4" placeholder="Kategoria...">
-                </th>
-                <th>
-                    <input type="text" class="search" data-column="5" placeholder="Lokalizacja...">
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-</div>
+    <button id="add-item-btn">Dodaj przedmiot</button>
 
-<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <div class="container">
+        <div>
+            <table id="items">
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="text" class="search" data-column="0" placeholder="Index...">
+                        </th>
+                        <th>
+                            <input type="text" class="search" data-column="1" placeholder="Nazwa...">
+                        </th>
+                        <th>
+                            <input type="text" class="search" data-column="2" placeholder="Typ...">
+                        </th>
+                        <th>
+                            <input type="text" class="search" data-column="3" placeholder="Ilość...">
+                        </th>
+                        <th>
+                            <input type="text" class="search" data-column="4" placeholder="Kategoria...">
+                        </th>
+                        <th>
+                            <input type="text" class="search" data-column="5" placeholder="Lokalizacja...">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="right-section">
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/warehouse.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/add-product.js') }}"></script>
 </body>
+
 </html>

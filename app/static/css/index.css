@@ -19,7 +19,6 @@ header {
     text-align: center;
 }
 
-/* Nagłówek / tytuł strony */
 .site-title {
     font-family: 'Overseer', sans-serif;
     font-size: 7vh;
@@ -62,4 +61,17 @@ a {
 a:hover {
     color: #ffd633;
     text-shadow: 0 0 5px #ffd633;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#items {
+    width: 70%;
+}
+
+.right-section {
+    width: 20%;
 }

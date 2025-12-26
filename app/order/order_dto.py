@@ -15,6 +15,7 @@ class OrderItemDTO(Schema):
     id = fields.Integer()
     product_name = fields.String(attribute="product.name")
     quantity = fields.Integer()
+    available_quantity = fields.Integer(attribute="product.quantity")
 
 class OrderSaveDTO(Schema):
     customer = fields.Str(required=True, validate=validate.Length(min=3))
