@@ -33,12 +33,16 @@ function loadItems() {
 }
 
 function showDetails(productId) {
+    if (document.querySelector('#edit-product-table')) {
+        return;
+    }
+
     fetch(`/v1/products/${productId}`)
         .then(response => response.json())
         .then(product => {
             const htmlContent = `
                 <h3>Szczegóły produktu #${product.id}</h3>
-                <table>
+                <table id="edit-product-table">
                     <thead>
                         <tr>
                             <th>Właściwość</th>
@@ -86,7 +90,7 @@ function updateProductQuantity(productId, newQuantity) {
     fetch(`/v1/products/${productId}/${newQuantity}`, {
         method: "PUT",
         headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
         }
     })
     .then(response => response.json())

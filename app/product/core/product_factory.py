@@ -2,11 +2,11 @@ from app.product.core.product import Product
 from app.product.manufactured.manufactured import Manufactured
 
 def create_product_from_dict(data: dict):
-    product_type = data.get("product_type", "product")
+    product_type = data.get("product_type", "Element")
 
     type_map = {
-        "product": Product,
-        "manufactured": Manufactured
+        "Element": Product,
+        "Produkt gotowy": Manufactured
     }
 
     model_cls = type_map.get(product_type)

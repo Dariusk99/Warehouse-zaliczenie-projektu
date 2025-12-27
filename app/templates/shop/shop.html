@@ -1,0 +1,8 @@
+{% extends "shop/shop-base.html" %}
+
+{% block content %}
+<div class="products-card">
+    <ul id="product-list" data-user="{{ current_user.is_authenticated }}"></ul>
+</div>
+<script src="{{ url_for('static', filename='js/products.js') }}"></script>
+{% endblock %}

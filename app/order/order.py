@@ -5,6 +5,8 @@ class Order(db.Model):
     customer = db.Column(db.String(60), nullable=False)
     address = db.Column(db.String(60), nullable=False)
     phone_number = db.Column(db.Integer, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user = db.relationship("User", back_populates="orders")
     items = db.relationship("OrderItem", back_populates="order", cascade="all, delete-orphan")
 
 class OrderItem(db.Model):

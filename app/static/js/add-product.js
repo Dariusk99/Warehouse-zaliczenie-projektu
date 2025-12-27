@@ -1,4 +1,9 @@
 function openAddItemModal() {
+
+    if (document.querySelector('#add-item-form')) {
+        return;
+    }
+
     const htmlContent = `
         <h3>Dodaj nowy przedmiot</h3>
         <form id="add-item-form">
@@ -15,8 +20,8 @@ function openAddItemModal() {
                     <td><label for="type">Typ:</label></td>
                     <td>
                         <select id="type" name="product_type" required>
-                            <option value="product">Product</option>
-                            <option value="manufactured">Manufactured</option>
+                            <option value="Element">Element</option>
+                            <option value="Produkt gotowy">Produkt gotowy</option>
                         </select>
                     </td>
                 </tr>
@@ -56,8 +61,6 @@ function openAddItemModal() {
         formData.forEach((value, key) => {
             data[key] = value;
         });
-
-        console.log("Dane formularza:", data);
 
         fetch('/v1/products', {
             method: 'POST',

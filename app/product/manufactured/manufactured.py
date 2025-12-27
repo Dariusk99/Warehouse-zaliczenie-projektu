@@ -3,7 +3,7 @@ from ..core.product import Product
 
 class Manufactured(Product):
     __mapper_args__ = {
-        "polymorphic_identity": "manufactured"
+        "polymorphic_identity": "Produkt gotowy"
     }
 
     bom_id = db.Column(db.Integer)

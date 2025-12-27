@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'Overseer';
+    src: url('/static/fonts/Overseer Italic.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #111010;
+    background-size: 100%;
+    height: 100vh;
+}
+
+header {
+    text-align: center;
+}
+
+.site-title {
+    -webkit-text-stroke: 0.05px #ffaa00;
+    font-family: 'Overseer', sans-serif;
+    font-size: 7vh;
+    color: #ffcc00;
+    text-shadow:
+        0 0 2px #ffcc00,
+        0 0 5px #ffd633;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        text-shadow: 0 0 5px #ffcc00, 0 0 12px #ffd633;
+    }
+    50% {
+        text-shadow: 0 0 8px #ffcc00, 0 0 18px #ffd633;
+    }
+    100% {
+        text-shadow: 0 0 5px #ffcc00, 0 0 12px #ffd633;
+    }
+}

@@ -5,5 +5,5 @@ class ManufacturedDTO(ProductDTO):
     bom_id = fields.Int(required=True)
 
 class ManufacturedSaveDTO(ProductSaveDTO):
-    type = fields.Constant("manufactured")
+    type = fields.Constant("Produkt gotowy")
     bom_id = fields.Int(required=True)

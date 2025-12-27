@@ -8,3 +8,4 @@ class User(db.Model, UserMixin):
     id = Column(Integer, primary_key=True)
     username = Column(String(100), unique=True, nullable=False)
     password_hash = Column(String(255), nullable=False)
+    orders = db.relationship("Order", back_populates="user")
