@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
+from flask_login import login_required, LoginManager, current_user, logout_user
 from app.database import db
 from app.product.core.product_repository import ProductRepository
 from app.product.core.product_service import ProductService
@@ -7,13 +8,10 @@ from app.order.order_repository import OrderRepository
 from app.order.order_service import OrderService
 from app.order.order_app_service import OrderAppService
 from app.order.order_controller import OrderController
-from flask_login import LoginManager
 from app.auth.user import User
 from app.auth.user_repository import UserRepository
 from app.auth.auth_service import AuthService
 from app.auth.auth_controller import AuthController
-from flask_login import login_required
-
 
 class AppFactory:
     def __init__(self):
@@ -67,16 +65,26 @@ class AppFactory:
         
         @self.app.get("/shop")
         def shop():
-            return render_template("shop.html")
+            return render_template("/shop/shop.html")
         
         @self.app.get("/warehouse")
         def warehouse():
-            return render_template("warehouse.html")
+            return render_template("/erp/warehouse.html")
         
         @self.app.get("/orders")
         def orders():
-            return render_template("orders.html")
-
+            return render_template("/erp/orders.html")
+        
+        @self.app.get("/shop/user/cart")
+        @login_required
+        def cart():
+            return render_template("/shop/user-cart.html")
+        
+        @self.app.route('/logout')
+        def logout():
+            logout_user()
+            return redirect(url_for('shop'))
+        
     def create_database(self):
         with self.app.app_context():
             db.create_all()

@@ -15,4 +15,4 @@ class ProductSaveDTO(Schema):
     quantity = fields.Int(required=True, validate=validate.Range(min=0))
     location = fields.Str(required=False, allow_none=True)
     category = fields.Str(required=False, allow_none=True)
-    product_type = fields.Str(required=True, validate=validate.OneOf(["product", "manufactured"]))
+    product_type = fields.Str(required=True, validate=validate.OneOf(["Element", "Produkt gotowy"]))

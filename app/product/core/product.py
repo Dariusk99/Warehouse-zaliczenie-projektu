@@ -8,10 +8,11 @@ class Product(db.Model):
     quantity = db.Column(db.Integer, default=0)
     location = db.Column(db.String(20))
     category = db.Column(db.String(20))
+    on_sell = db.Column(db.Boolean, default=False)
 
     product_type = db.Column(db.String(20))
 
     __mapper_args__ = {
         "polymorphic_on": product_type,
-        "polymorphic_identity": "product"
+        "polymorphic_identity": "Element"
     }
