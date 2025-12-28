@@ -8,10 +8,10 @@ function openLoginModal() {
             <h1>Zaloguj</h1>
             <form id="login-form">
                 <label for="username">Login:</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" required><br>
 
                 <label for="password">Hasło:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required><br>
                 <button>Zaloguj</button>
             </form>
         </div>
@@ -61,10 +61,10 @@ function openRegisterModal() {
             <h1>Zarejestruj</h1>
             <form id="register-form">
                 <label for="username">Login:</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" required><br>
 
                 <label for="password">Hasło:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required><br>
                 <button>Zarejestruj</button>
             </form>
         </div>
