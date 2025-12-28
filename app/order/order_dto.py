@@ -21,4 +21,5 @@ class OrderSaveDTO(Schema):
     customer = fields.Str(required=True, validate=validate.Length(min=3))
     address = fields.Str(required=True, validate=validate.Length(min=3))
     phone_number = fields.Integer(required=True)
-    products = fields.List(fields.Nested(OrderItemInputDTO), required=True)
+    products = fields.List(fields.Nested(OrderItemInputDTO), required=True,
+    validate=validate.Length(min=1))

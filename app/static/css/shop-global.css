@@ -13,6 +13,10 @@ body {
     height: 100vh;
 }
 
+a {
+    text-decoration: none;
+}
+
 header {
     text-align: center;
 }
@@ -28,13 +32,48 @@ header {
     animation: pulse 1.5s infinite alternate;
 }
 
+.nav-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: #ecf0f1;
+    text-align: inherit;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-btn:hover {
+    color: #1abc9c;
+}
+
+.simple-btn {
+    padding: 6px 16px;
+    background: #ffffff;
+    color: #111111;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #111;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+li {
+    border: 1px solid white;
+    list-style: none;
+}
+
 @keyframes pulse {
     0% {
         text-shadow: 0 0 5px #ffcc00, 0 0 12px #ffd633;
     }
+
     50% {
         text-shadow: 0 0 8px #ffcc00, 0 0 18px #ffd633;
     }
+
     100% {
         text-shadow: 0 0 5px #ffcc00, 0 0 12px #ffd633;
     }

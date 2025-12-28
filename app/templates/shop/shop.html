@@ -2,6 +2,7 @@
 
 {% block content %}
 <div class="products-card">
+    <h2>Produkty do kupienia</h2>
     <ul id="product-list" data-user="{{ current_user.is_authenticated }}"></ul>
 </div>
 <script src="{{ url_for('static', filename='js/products.js') }}"></script>

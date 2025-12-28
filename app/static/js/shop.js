@@ -23,7 +23,7 @@ function openLoginModal() {
     loginModal.open(htmlContent);
 
     const form = document.querySelector('#login-form');
-    form.addEventListener("submit", function(event) {
+    form.addEventListener("submit", function (event) {
         event.preventDefault();
 
         const formData = new FormData(form);
@@ -32,15 +32,13 @@ function openLoginModal() {
             data[key] = value;
         });
 
-        console.log(data);
-    
         fetch("/v1/auth/login", {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
-            })
+        })
             .then(response => response.json())
             .then(user => {
                 alert('Zalogowano pomyślnie');
@@ -78,7 +76,7 @@ function openRegisterModal() {
     registerModal.open(htmlContent);
 
     const form = document.querySelector('#register-form');
-    form.addEventListener("submit", function(event) {
+    form.addEventListener("submit", function (event) {
         event.preventDefault();
 
         const formData = new FormData(form);
@@ -93,7 +91,7 @@ function openRegisterModal() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
-            })
+        })
             .then(response => response.json())
             .then(user => {
                 alert('Użytkownik zarejestrowany pomyślnie');
@@ -106,9 +104,45 @@ function openRegisterModal() {
     })
 }
 
-function getAllProducts() {
-    
+function openCartModal() {
+    if (document.querySelector('.cart-modal')) {
+        return;
+    }
+
+    const cart = getCart();
+    let itemsHtml = "";
+
+    cart.forEach(item => {
+    itemsHtml += `
+        <li>
+        ${item.product_name} - ${item.quantity}szt.
+        </li>
+    `;
+    });
+
+    const htmlContent = `
+        <div class="cart-modal">
+            <h1>Koszyk</h1>
+            <ul>
+                ${itemsHtml}
+            </ul>
+            <a href="/shop/user/orders"><button class="simple-btn">Zamów</button></a>
+            <button id="clear-cart-btn" class="simple-btn" onclick="clearCart()">Wyczyść koszyk</button>
+        </div>
+    `
+
+    let cartModal = new Modal();
+    const main = document.querySelector('main');
+    main.appendChild(cartModal.modalElement);
+    cartModal.open(htmlContent);
+
 }
 
-document.getElementById("login-btn").addEventListener("click", openLoginModal);
-document.getElementById("register-btn").addEventListener("click", openRegisterModal);
+document.addEventListener("DOMContentLoaded", () => {
+    const cartBtn = document.getElementById("cart-btn");
+    const loginBtn = document.getElementById("login-btn");
+    const registerBtn = document.getElementById("register-btn");
+    if (cartBtn) cartBtn.addEventListener("click", openCartModal);
+    if (loginBtn) loginBtn.addEventListener("click", openLoginModal);
+    if (registerBtn) registerBtn.addEventListener("click", openRegisterModal);
+});

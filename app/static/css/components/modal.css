@@ -10,3 +10,7 @@
     color: #ff7875;
     text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
 }
+
+.modal-content {
+    max-width: 15%;
+}

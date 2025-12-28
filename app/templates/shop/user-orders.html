@@ -1,0 +1,33 @@
+{% extends "shop/shop-base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user-orders.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="orders-card">
+        <ul id="order-list" data-user="{{ current_user.is_authenticated }}"></ul>
+    </div>
+    <div class="right-section">
+        <form id="user-personal-form">
+            <ul>
+                <li>
+                    <input id="customer" name="customer" placeholder="Imię i nazwisko" />
+                </li>
+                <li>
+                    <input id="address" name="address" placeholder="Adres" />
+                </li>
+                <li>
+                    <input id="phone_number" name="phone_number" placeholder="Numer telefonu" /></td>
+                </li>
+                <li>
+                    <button id="order-btn">Zamawiam</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/user-orders.js') }}"></script>
+{% endblock %}

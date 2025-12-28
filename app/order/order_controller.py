@@ -1,4 +1,5 @@
 from flask import Blueprint, Response, request, jsonify
+from flask_login import current_user, login_required
 import json
 from app.order.order_dto import OrderDTO, OrderSaveDTO
 
@@ -29,10 +30,11 @@ class OrderController:
             return jsonify({"error": "Order nie znaleziony"}), 404
         return self.order_dto.dump(order), 201
 
+    @login_required
     def save_order(self):
         validated = self.order_save_dto.load(request.get_json())
         try:
-            order = self.order_app_service.create_order(validated)
+            order = self.order_app_service.create_order(validated, user=current_user)
             return self.order_dto.dump(order), 201
         except ValueError as e:
             return jsonify({"error": str(e)}), 400

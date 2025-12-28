@@ -9,6 +9,13 @@ class Order(db.Model):
     user = db.relationship("User", back_populates="orders")
     items = db.relationship("OrderItem", back_populates="order", cascade="all, delete-orphan")
 
+    def __repr__(self):
+        items_str = "\n".join([repr(item) for item in self.items])
+        return (f"Order(id={getattr(self, 'id', None)}, "
+                f"customer={self.customer}, address={self.address}, "
+                f"phone_number={self.phone_number}, "
+                f"user_id={getattr(self, 'user_id', None)})\nItems:\n{items_str}")
+
 class OrderItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     order_id = db.Column(db.Integer, db.ForeignKey('order.id'), nullable=False)

@@ -75,10 +75,10 @@ class AppFactory:
         def orders():
             return render_template("/erp/orders.html")
         
-        @self.app.get("/shop/user/cart")
+        @self.app.get("/shop/user/orders")
         @login_required
-        def cart():
-            return render_template("/shop/user-cart.html")
+        def user_orders():
+            return render_template("/shop/user-orders.html")
         
         @self.app.route('/logout')
         def logout():
