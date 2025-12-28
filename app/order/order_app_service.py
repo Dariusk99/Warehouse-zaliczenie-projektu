@@ -22,8 +22,6 @@ class OrderAppService:
             
             order_item = OrderItem(product=product, quantity=item["quantity"])
             order.items.append(order_item)
-        
-        print(order)
 
         self.order_service.save(order)
         return order
