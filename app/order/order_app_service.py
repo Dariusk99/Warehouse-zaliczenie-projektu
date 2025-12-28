@@ -7,11 +7,12 @@ class OrderAppService:
         self.order_service = order_service
         self.product_service = product_service
 
-    def create_order(self, order_data):
+    def create_order(self, order_data, user):
         order = Order(
             customer=order_data["customer"],
             address=order_data["address"],
-            phone_number=order_data["phone_number"]
+            phone_number=order_data["phone_number"],
+            user=user
         )
         
         for item in order_data["products"]:
@@ -22,5 +23,7 @@ class OrderAppService:
             order_item = OrderItem(product=product, quantity=item["quantity"])
             order.items.append(order_item)
         
+        print(order)
+
         self.order_service.save(order)
         return order

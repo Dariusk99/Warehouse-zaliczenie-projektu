@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    gap: 5%;
+}
+
+.orders-card {
+    max-width: 30%;
+}

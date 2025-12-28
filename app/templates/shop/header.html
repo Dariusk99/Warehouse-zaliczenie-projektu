@@ -1,13 +1,13 @@
 <header>
-    <h1 class="site-title">Steel Factory</h1>
+    <a href="/shop"><h1 class="site-title">Steel Factory</h1></a>
     <nav>
         {% if current_user.is_authenticated %}
             <span>Witaj, {{ current_user.username }}</span>
-            <button>Moje zamówienia</button>
+            <button id="cart-btn" class="nav-btn">Koszyk</button>
             <a href="{{ url_for('logout') }}">Wyloguj</a>
         {% else %}
-            <button id="login-btn">Zaloguj</button>
-            <button id="register-btn">Zarejestruj</button>
+            <button id="login-btn" class="nav-btn">Zaloguj</button>
+            <button id="register-btn" class="nav-btn">Zarejestruj</button>
         {% endif %}
     </nav>
 </header>

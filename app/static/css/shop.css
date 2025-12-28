@@ -6,3 +6,11 @@ main {
     width: 15%;
     background-color: white;
 }
+
+.products-card {
+    text-align: center;
+}
+
+.products-card ul {
+    background-color: rgb(0, 0, 0);
+}
