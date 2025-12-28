@@ -5,7 +5,9 @@ Python 3.13.0
 ERP Warehouse & Order Management System to prosta aplikacja webowa do zarządzania stanem magazynowym oraz obsługą zamówień. Projekt umożliwia:
 
 -Dodawanie i śledzenie produktów w magazynie.
+
 -Wyświetlanie zamówień dodanych przez klienta.
+
 -Możliwość składania zamówień po stronie klienta.
 
 Strona klienta została dodana wyłącznie w celach testowych by nie używać postmana. Działa w tym samym origin by uprościć cały deployment i ominąć zbędną konfiguracje CORS, proxy.
