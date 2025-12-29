@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (userLoggedIn) {
                     const btn = document.createElement('button');
-                    btn.classList.add("simple-btn");
                     btn.textContent = 'Dodaj do koszyka';
 
                     btn.addEventListener('click', () => {

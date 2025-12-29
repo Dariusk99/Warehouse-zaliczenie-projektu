@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f9f9f9;
@@ -30,27 +34,46 @@ nav a {
 }
 
 nav a:hover {
-    color: #1abc9c;
+    color: #ffcc00;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: white;
+    text-align: inherit;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-btn:hover {
+    color: #ffcc00;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    border-radius: 8px;
+    background-color: white;
     overflow: hidden;
 }
 
 table thead th {
     text-align: left;
     padding: 12px 15px;
-    font-size: 16px;
+    font-size: 4vh;
+}
+
+table tr {
+    border: 1px solid black;
+
 }
 
 table tbody td {
     padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
     font-size: 14px;
 }
 

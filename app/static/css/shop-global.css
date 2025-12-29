@@ -8,9 +8,11 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #111010;
-    background-size: 100%;
     height: 100vh;
+}
+
+header {
+    background-color: black;
 }
 
 a {
@@ -32,36 +34,8 @@ header {
     animation: pulse 1.5s infinite alternate;
 }
 
-.nav-btn {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font: inherit;
-    color: #ecf0f1;
-    text-align: inherit;
-    cursor: pointer;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-.nav-btn:hover {
-    color: #1abc9c;
-}
-
-.simple-btn {
-    padding: 6px 16px;
-    background: #ffffff;
-    color: #111111;
-    font-size: 14px;
-    font-weight: 500;
-    border: 1px solid #111;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
 li {
-    border: 1px solid white;
+    border: 1px solid black;
     list-style: none;
 }
 

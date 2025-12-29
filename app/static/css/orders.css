@@ -11,21 +11,18 @@
 table {
     width: 100%;
     border-collapse: collapse;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    border-radius: 8px;
+    background-color: white;
     overflow: hidden;
 }
 
 table thead th {
     text-align: left;
     padding: 12px 15px;
-    font-size: 16px;
+    font-size: 4vh;
 }
 
 table tbody td {
     padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
     font-size: 14px;
 }
 

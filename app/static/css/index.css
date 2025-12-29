@@ -1,3 +1,7 @@
+body {
+    background-color: black;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -11,7 +15,6 @@ main {
 a {
     font-family: 'Overseer', sans-serif;
     color: #ffcc00;
-    text-decoration: none;
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 

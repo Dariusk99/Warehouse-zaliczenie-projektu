@@ -126,8 +126,8 @@ function openCartModal() {
             <ul>
                 ${itemsHtml}
             </ul>
-            <a href="/shop/user/orders"><button class="simple-btn">Zamów</button></a>
-            <button id="clear-cart-btn" class="simple-btn" onclick="clearCart()">Wyczyść koszyk</button>
+            <a href="/shop/user/orders"><button>Zamów</button></a>
+            <button id="clear-cart-btn" onclick="clearCart()">Wyczyść koszyk</button>
         </div>
     `
 

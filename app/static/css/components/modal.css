@@ -1,16 +1,15 @@
 .close {
-    color: #ff4d4f;
+    color: red;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 26px;
     cursor: pointer;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.close:hover {
-    color: #ff7875;
-    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
 }
 
 .modal-content {
     max-width: 15%;
+}
+
+.modal {
+    width: fit-content;
+    border: 1px solid rgb(125, 123, 123);
 }
